@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+    <!--左右滑动菜单-->
+    <view class='scroll-x-bkg'>
+     <scroll-view class='menu-scroll-x' scroll-x="true">  
+      <button class='menu-scroll-x-item' wx:for='{{menus}}'>{{item.category}}</button>
+    </scroll-view>
+    </view>
+     <scroll-view class='menu-scroll-y' scroll-y="true">
+    <!--所有菜品-->
+    <!--中间用category隔开，当用户点击滑动菜单时，可以自动跳转-->
+      <block wx:for-items='{{menus}}'>
+        <view class='menu-scroll-y-category'>
+            <icon> </icon>
+            <text>{{item.category}}</text>
+        </view>
+        
+        <view class='menu-scroll-y-item' wx:for='{{item.data}}' wx:for-item='data'>
+          <image class='menu-scroll-y-item-left' src='{{data.imagePath}}'></image>
+          
+          <view class='menu-scroll-y-item-right'>
+            <text class='title'>{{data.name}}</text>
+            <text class='sub-title' wx:if="{{data.detail != ''}}">{{data.detail}}</text>
+            <text class='price'>¥{{data.price}}</text>
+            <view class='btn-choose' wx:if="{{item.category == '超值套餐'}}">
+              <text>选搭配</text>
+            </view>
+            <view class='btn-add' wx:if="{{item.category != '超值套餐'}}">
+              <text>+</text>
+            </view>
+          </view>
+        </view>
+
+      </block>
+    </scroll-view> 
+
+    <!--购物车底部浮层-->
+    <view class='bottom-carts'>
+      <view class='goos-nums'>
+        <image src=''></image>
+        <text>{{orderNums}}</text>
+        <text></text>
+      </view>
+    </view>
+</view>

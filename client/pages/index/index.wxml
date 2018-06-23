@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!--广告轮播-->
+  <view class="ad-swiper">
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for-items="{{banners}}">
+            <swiper-item>
+                <image src='{{item.imagePath}}'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view> 
+
+  <!--开始点餐-->
+  <view class='begin-order'>
+    <image class='begin-order-left' src='./user-unlogin.png'></image>
+    <view class='begin-order-right'>
+      <text class='title'>开始点餐</text>
+      <text class='sub-title'>工作日也不能粗茶淡饭</text>
+      <button class='order-button' >外卖点餐</button>
+    </view>
+  </view>
+  <!--活动通知-->
+  <view class='tips'>
+    <view class='tips-item'>
+      <text id='name'>活动通知</text>
+      <text id='value'>{{sellerInfo.promotion}}</text>
+    </view>
+    <view class='tips-item'>
+      <text id='name'>客服电话</text>
+      <text id='value'>{{sellerInfo.phone}}</text>
+    </view>
+    <view class='tips-item'>
+      <text id='name'>营业时间</text>
+      <text id='value'>{{sellerInfo.shopHours}}</text>
+    </view>
+    
+  </view>
+  <!--客服电话-->
+  <!--营业时间-->
+
+    
+</view>

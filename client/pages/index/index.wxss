@@ -1,0 +1,74 @@
+/**index.wxss**/
+page {
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.vip-card{
+  margin-left: 10rpx;
+  width: 100%;
+  height: 187.5rpx;
+}
+.begin-order{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 240rpx;
+  width: 100%
+}
+.begin-order-left{
+  width: 100%;
+  height: 100%;
+}
+.begin-order-right{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 40rpx;
+  flex-direction: column;
+  text-align: center
+}
+.begin-order-right .title{
+  font-size:60rpx; 
+  font-weight:bold
+}
+.begin-order-right .sub-title{
+  font-size:24rpx; 
+}
+.begin-order-right .order-button{
+  width:240rpx;
+  height:100rpx; 
+  border-radius:50rpx;
+  background-color:#00ff00; 
+  margin-top:30rpx; 
+  text-align:center
+}
+
+.ad-swiper{
+  width: 90%;
+  height: 375rpx;
+}
+
+.ad-swiper image{
+  width: 100%;
+  height: 100%;
+}
+.tips{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size:30rpx
+}
+.tips-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30rpx;
+  margin-left:30rpx;   
+}
+.tips-item #value{
+  margin-left: 20rpx; 
+}

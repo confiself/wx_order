@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/mine/mine",
+    "pages/addCgi/addCgi",
+    "pages/test/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "点餐",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user.png"
+      },
+      {
+        "text": "点餐",
+        "pagePath": "pages/order/order",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user.png"
+      },
+      {
+        "text": "addCgi",
+        "pagePath": "pages/addCgi/addCgi",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user.png"
+      },
+      {
+        "text": "test",
+        "pagePath": "pages/test/index",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user.png"
+      }
+    ]
+  }
+}
