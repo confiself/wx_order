@@ -1,0 +1,7 @@
+<!--pages/address/manage/manage.wxml-->
+<view wx:for="{{addressList}}" class='address-item' bindtap='selectAddress' data-index="{{index}}">
+  <text class='address'>{{item.address}}</text>
+  <text class='contact-info'>{{item.userName}} {{item.phone}}</text>
+  <image class='delete' src='/images/delete.png' bindtap='deleteAddress' ></image>  
+</view>
+<view class='add-view' bindtap='addAddress'>新增地址</view>

@@ -1,0 +1,14 @@
+<!--classfiy.wxml-->
+<import src="../templates/search" />
+<import src="../templates/classfiy-list" />
+<template is="search"></template>
+<view class="classfiy-nav" id="classfiy-nav">
+  <block wx:for="{{classfiyNav}}">
+      <view class="nav-list {{id==index ? 'active' : ''}}"  bindtap="tabClassfiy" id="nav-{{index}}" >
+          <text>{{item.text}}</text>
+      </view>
+  </block>
+</view>
+<view class="classfiy-list clearfix">
+  <template is="classfiy" data="{{classfiyList, id}}"></template>
+</view>

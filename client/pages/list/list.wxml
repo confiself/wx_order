@@ -1,0 +1,115 @@
+<!--index.wxml-->
+<view class='scroll-x-bkg'>
+     <scroll-view class='menu-scroll-x' scroll-x="true" >  
+      <button id="x{{index}}" class="menu-scroll-x-item {{index==activeIndex?'active': ''}}" 
+              wx:for='{{listData}}' 
+              data-index="{{index}}"
+              catchtap='selectMenu'>{{item.category}}</button>
+    </scroll-view>
+    </view>
+<scroll-view class='menu-scroll-y' 
+                  scroll-y="true"
+                  scroll-into-view="{{toView}}">
+      <view wx:for='{{listData}}' id="a{{index}}" wx:key="unique">
+        <view class='menu-scroll-y-category'>
+            <icon> </icon>
+            <text>{{item.category}}</text>
+        </view>
+        
+        <view class='menu-scroll-y-item' wx:for='{{item.products}}' 
+              wx:for-item='items' wx:key="unique"
+              wx:for-index="indexs">
+          <image class='menu-scroll-y-item-left' src='{{items.image_url}}'></image>
+          
+          <view class='menu-scroll-y-item-right'>
+            <text class='title'>{{items.name}}</text>
+            <text class='sub-title' >{{items.tips}}</text>
+            <text class='price'>¥{{items.price}}</text>
+            <view class='btn-add' bindtap='selectInfo' 
+            data-type="{{index}}" data-index="{{indexs}}"> <text>+</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style='height:250rpx; width:100%; '></view>
+</scroll-view> 
+
+<!-- 底部操作菜单 -->
+    <!-- 优惠宣传条 -->
+  <view  class="operate-bar">
+  <view class='cut-bar' wx:if="{{sumMonney==0&&loading}}">
+    <label>满20立减3元</label>
+  </view>
+  <view class='cut-bar' wx:if="{{sumMonney<20&&sumMonney!=0&&loading}}">
+    <label>满20立减3元,还差{{20-sumMonney}}元,去凑单></label>
+  </view>
+
+  <view class='bottom' wx:if="{{cartList.length!=0}}">
+    <view class='gouwuche' >
+      <view style='padding:5px;display:flex'>
+        <i class="iconfont icon-gouwuchefill gouwuche-icon {{sumMonney!=0?'activity-color':'' }}" bindtap="showCartList">
+          <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
+        </i>
+
+        <view class='gouwuche-price' wx:if="{{sumMonney==0}}">购物车是空的</view>
+        <view class='gouwuche-price' style='color:white;font-size:18px' wx:if="{{sumMonney!=0}}">¥ {{sumMonney}}.00</view>
+      </view>
+    </view>
+    <view wx:if="{{cartList.length!=0}}" class="submit-btn {{sumMonney!=0?'activity-color-bg':'' }}" bindtap='goBalance'>
+      <view class="submit-btn-label {{sumMonney!=0?'color-white':'' }}">选好了</view>
+    </view>
+  </view>
+  </view>
+<!-- 选择弹窗 -->
+<view class="drawer_screen" bindtap="selectInfo" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_box_ad" wx:if="{{showModalStatus}}">
+  <view class="drawer_content_ad">
+    <view style='font-size:16px;display:flex;justify-content:center;  '> {{listData[currentType].foods[currentIndex].name}} </view>
+    <view class="select-line-nav">规格</view>
+    <view style='display:flex'>
+      <view class="select-tab {{index==sizeIndex?'select-active':''}}" wx:for="{{size}}" wx:key="unique" data-type='0' data-index='{{index}}' bindtap='chooseSE'>{{item}}</view>
+    </view>
+    <view class="select-line-nav">糖度</view>
+    <view style='display:flex'>
+      <view class="select-tab {{index==sugarIndex?'select-active':''}}" wx:for="{{sugar}}" wx:key="unique" bindtap='chooseSE' data-type='1' data-index='{{index}}'>{{item}}</view>
+    </view>
+    <view class="select-line-nav">温度</view>
+    <view style='display:flex'>
+      <view class="select-tab {{index==temIndex?'select-active':''}}" wx:for="{{tem}}" wx:key="unique" bindtap='chooseSE' data-type='2' data-index='{{index}}'>{{item}}</view>
+    </view>
+    <view class="select-price">¥{{listData[currentType].products[currentIndex].price}}.00
+      <button class="btn-putIn" bindtap='addToCart'>加入购物车</button>
+    </view>
+  </view>
+</view>
+<!-- 购物车 -->
+<view class="drawer_screen" bindtap="showCartList" data-statu="close" wx:if="{{showCart}}"></view>
+<view class="cartlist-float" wx:if="{{showCart}}">
+  <view style='background:#F0F0F0;height:30px'>
+    <label class='label-cart-bar'>
+      <label style='padding:5px'>已选商品</label>
+    </label>
+    <label class='icon-clear' bindtap='clearCartList'>
+      <i class="iconfont icon-lajitong"></i>
+      <label class="label-clear">清空购物车</label>
+    </label>
+  </view>
+  <scroll-view scroll-y="true" class="{{cartList.length>5?'cart-scroll-list':''}}">
+
+    <view class='cart-list-box' wx:for="{{cartList}}" wx:key="unique" style='border-bottom:1px #E3E3E3 solid'>
+      <view class='list-info'>
+        <view>{{item.name}}</view>
+        <view class='list-info-size'>{{item.detail}}</view>
+      </view>
+      <view style='width:50%;padding:10px;'>
+        <view style='float:right'>
+          <label class='activity-color'>¥ {{item.sum}}.00</label>
+          <i class="iconfont icon-jian icon-li-circle" data-index="{{index}}" bindtap="decNumber"></i>
+          {{item.number}}
+          <i class="iconfont icon-jiahao2fill activity-color font20" data-index="{{index}}" bindtap="addNumber"></i>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

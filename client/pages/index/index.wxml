@@ -19,7 +19,7 @@
     <view class='begin-order-right'>
       <text class='title'>开始点餐</text>
       <text class='sub-title'>工作日也不能粗茶淡饭</text>
-      <button class='order-button' >外卖点餐</button>
+      <button class='order-button' bindtap='golist' >外卖点餐</button>
     </view>
   </view>
   <!--活动通知-->

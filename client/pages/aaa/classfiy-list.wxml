@@ -1,0 +1,13 @@
+<template name="classfiy">
+<scroll-view scroll-y="true"  scroll-with-animation="true" scroll-into-view="list-{{id}}" id="scroll-list">
+    <view class="classfiy-list-sm clearfix"  id="list-{{index}}" wx:for="{{classfiyList}}" >
+      <view class="classfiy-all">{{item.text}}</view>
+      <block wx:for="{{item.list}}" wx:for-item="list">
+          <view class="nav-list-con fl">
+              <image src="{{list.img}}"></image>
+              <text>{{list.text}}</text>
+          </view>   
+      </block>
+    </view>
+  </scroll-view>
+</template>

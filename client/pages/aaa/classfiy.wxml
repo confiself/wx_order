@@ -1,0 +1,6 @@
+<!--classfiy.wxml-->
+<scroll-view>
+<view wx:for="{{classfiyNav}}">
+<view style='width:100%; height:200rpx; margin-top:10rpx; background:#c0c0c0;'></view>
+</view>
+</scroll-view>

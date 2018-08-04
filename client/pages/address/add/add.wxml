@@ -1,0 +1,29 @@
+<!--pages/address/add/add.wxml-->
+<view class='title-view'><text>联系人信息</text></view>
+<view class='info-view'>
+  <view class='info-item'>
+    <text>收货人姓名</text>
+    <input placeholder='输入收货人姓名' bindinput='userNameInput'></input>
+  </view>
+  <view class='line'></view>
+  <view class='info-item'>
+    <text>收货人手机</text>
+    <input placeholder='输入收货人手机' bindinput='phoneInput'></input>
+  </view>
+</view>
+
+<view class='title-view'><text>收货人地址</text></view>
+<view class='info-view'>
+  <view class='info-item'>
+    <text>地址区域</text>
+    <input placeholder='点击图标自动获取地址' bindinput='addressRegionInput' value='{{addressRegion}}'></input>
+    <image class='map' src='/images/map.png' bindtap='chooseAddress'></image>
+  </view>
+  <view class='line'></view>
+  <view class='info-item'>
+    <text>门牌号</text>
+    <input placeholder='例如5楼504' bindinput='addressDetailInput' value='{{addressDetail}}'></input>
+  </view>
+</view>
+<view class='error-hint'>{{errorHint}}</view>
+<view class='save-view' bindtap='save'>保存</view>

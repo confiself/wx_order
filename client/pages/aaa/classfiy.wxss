@@ -1,0 +1,65 @@
+/* pages/classfiy/classfiy.wxss */
+.head-mask {
+    opacity: 1;
+}
+page {
+    margin-top:90rpx;
+}
+.classfiy-nav {
+    margin-top: 90rpx;
+    height: 100%;
+    float: left;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200rpx;
+    background: #e6e6e6;
+    text-align: center;
+}
+.classfiy-nav .nav-list {
+     border-bottom: 1px solid #ccc;
+}
+.classfiy-nav text {
+    font-size: 28rpx;
+    line-height: 100rpx;
+
+}
+/* 这里就是右侧分类列表使用height百分比。保证scroll-into-view生效。其中height使用了计算是为了弥补搜索框固定定位占据的高度。可忽略。核心是外层壳子有100%高度。内部既可以使用100%*/
+.classfiy-list {
+    margin-top: 110rpx;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: calc(100% - 200rpx);
+    height: calc(100% + 120rpx);
+    float: right;
+    text-align: center;
+    font-size: 24rpx;
+}
+.nav-list.active {
+  background: #fff;
+  border-left: 3px solid #ff8000;
+  box-sizing: border-box;
+}
+#scroll-list {
+  height: 100%;
+}
+.nav-list-con {
+    width: 33%;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.nav-list-con image {
+    margin-bottom: 10rpx;
+    width: 100%;
+    height: 120rpx;
+}
+.classfiy-all {
+    margin-left: 12%;
+    width: 80%;
+    margin-top: 30rpx;
+    margin-bottom: 15rpx;
+    line-height: 60rpx;
+    background: #c91523;
+    color: #fff;
+}
